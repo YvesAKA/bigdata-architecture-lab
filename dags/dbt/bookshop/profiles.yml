@@ -3,12 +3,12 @@ bookshop:
   outputs:
     dev:
       type: snowflake
-      account: RXFRTQJ-TZ18826
-      user: DBT_CORE
-      password: UraPyrR51BRYw2
-      role: ACCOUNTADMIN              
+      account: ...
+      user: ...
+      password: ....
+      role: ...              
       database: BOOKSHOP
       warehouse: COMPUTE_WH
-      schema: BS
+      schema: ...
       threads: 10
       client_session_keep_alive: False
