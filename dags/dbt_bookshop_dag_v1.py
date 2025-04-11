@@ -4,10 +4,8 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles import SnowflakeUserPasswordProfileMapping
 from pathlib import Path
 
-# Définir le chemin du projet DBT
 DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/dags/dbt/bookshop"
 
-# Configuration du profil DBT
 profile_config = ProfileConfig(
     profile_name="bookshop",
     target_name="dev",
@@ -20,7 +18,6 @@ profile_config = ProfileConfig(
     )
 )
 
-# Configuration du DAG DBT
 dbt_snowflake_dag = DbtDag(
     project_config=ProjectConfig(DBT_PROJECT_PATH),
     operator_args={"install_deps": True},  # Installe les dépendances DBT si nécessaire
@@ -31,6 +28,5 @@ dbt_snowflake_dag = DbtDag(
     schedule_interval="@daily",  # Planification quotidienne
     start_date=datetime(2025, 4, 11),  # Date de début du DAG
     catchup=False,  # Désactive le rattrapage des exécutions manquées
-    dag_id="dbt_snowflake_dag",  # Identifiant unique du DAG
-    
+    dag_id="dbt_snowflake_dag",  # Identifiant unique du DAG  
 )

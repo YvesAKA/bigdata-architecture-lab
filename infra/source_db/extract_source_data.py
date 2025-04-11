@@ -4,7 +4,6 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col, max as sf_max
 from datetime import datetime
 
-# Configuration PostgreSQL
 POSTGRES_CONFIG = {
     "dbname": "bookshop",
     "user": "bookuser",
@@ -13,7 +12,6 @@ POSTGRES_CONFIG = {
     "port": "15432"
 }
 
-# Configuration Snowflake
 SNOWFLAKE_CONFIG = {
     "account": "RXFRTQJ-TZ18826",
     "user": "DBT_CORE",
@@ -60,15 +58,11 @@ def load_to_snowflake_direct(table_name, df, session):
     if df.empty:
         print(f"Aucune nouvelle donnée à charger pour la table {table_name}.")
         return
-
     try:
-        # Charger les données dans une DataFrame Snowpark
         snowpark_df = session.create_dataframe(df)
-
-        # Insérer directement les données dans la table cible
         snowpark_df.write.save_as_table(
             f'"{SNOWFLAKE_CONFIG["schema"]}"."{table_name}"',
-            mode="append"  # Ajoute les nouvelles données directement
+            mode="append"  
         )
         print(f"Données chargées avec succès dans la table {table_name}.")
     except Exception as e:
@@ -76,27 +70,18 @@ def load_to_snowflake_direct(table_name, df, session):
 
 def main():
     try:
-        # Créer une session Snowpark
         session = get_snowflake_session()
-
         for table in TABLES:
             print(f"Traitement de la table {table}...")
-
-            # Récupérer le dernier timestamp chargé
             last_loaded_timestamp = get_last_loaded_timestamp(table, session)
-
-            # Extraire les nouvelles données de PostgreSQL
             new_data = extract_from_postgres(table, last_loaded_timestamp)
-
             # Charger directement les données dans Snowflake
             load_to_snowflake_direct(table, new_data, session)
-
     except Exception as e:
         print(f"Erreur générale : {e}")
     finally:
         if 'session' in locals() and session:
             session.close()
             print("Session Snowflake fermée.")
-
 if __name__ == "__main__":
     main()
