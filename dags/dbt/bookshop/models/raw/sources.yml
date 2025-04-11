@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: factures
+        identifier: '"factures"'
+      - name: customers
+        identifier: '"customers"'
+      - name: category
+        identifier: '"category"'
+      - name: books
+        identifier: '"books"'
+      - name: ventes
+        identifier: '"ventes"'

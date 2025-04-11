@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_category
+    description: "Dimension des catégories de livres"
+
+  - name: dim_books
+    description: "Dimension des livres"
+
+  - name: dim_customers
+    description: "Dimension des clients avec nom complet"
+
+  - name: fact_ventes
+    description: "Faits de ventes enrichis avec des dimensions temporelles"
+
+  - name: fact_factures
+    description: "Faits de factures enrichis avec des dimensions temporelles"
+
+  - name: fact_books_annees
+    description: "Ventes de livres agrégées par année"
+
+  - name: fact_books_mois
+    description: "Ventes de livres agrégées par mois"
+
+  - name: fact_books_jour
+    description: "Ventes de livres agrégées par jour"

@@ -1,0 +1,14 @@
+bookshop:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: RXFRTQJ-TZ18826
+      user: DBT_CORE
+      password: UraPyrR51BRYw2
+      role: ACCOUNTADMIN              
+      database: BOOKSHOP
+      warehouse: COMPUTE_WH
+      schema: BS
+      threads: 10
+      client_session_keep_alive: False

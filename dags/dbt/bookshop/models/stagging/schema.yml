@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_category
+    description: "Copie directe depuis RAW.category"
+
+
+  - name: stg_books
+    description: "Copie directe depuis RAW.books"
+    
+  - name: stg_customers
+    description: "Copie directe depuis RAW.customers"
+
+
+  - name: stg_factures
+    description: "Transformation de la colonne date_edit en date"
+
+  
+  - name: stg_ventes
+    description: "Transformation de la colonne date_edit en date"
+
