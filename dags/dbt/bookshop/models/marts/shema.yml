@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: obt_sales
+    description: "Table mart centralisant les ventes enrichies avec toutes les dimensions nécessaires"

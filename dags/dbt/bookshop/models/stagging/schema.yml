@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_category
+    description: "Copie directe depuis RAW.category"
+    columns:
+      - name: id
+        description: "Identifiant unique de la catégorie"
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_books
+    description: "Copie directe depuis RAW.books"
+    columns:
+      - name: id
+        tests: [not_null, unique]
+      - name: category_id
+        description: "Référence vers la table catégorie"
+
+  - name: stg_customers
+    description: "Copie directe depuis RAW.customers"
+    columns:
+      - name: id
+        tests: [not_null, unique]
+
+  - name: stg_factures
+    description: "Transformation de la colonne date_edit en date"
+    columns:
+      - name: date_edit
+        description: "Date de la facture (format date)"
+  
+  - name: stg_ventes
+    description: "Transformation de la colonne date_edit en date"
+    columns:
+      - name: date_edit
+        description: "Date de la vente (format date)"
