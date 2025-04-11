@@ -4,8 +4,13 @@ sources:
   - name: raw
     schema: raw
     tables:
-      - name: category
-      - name: books
-      - name: customers
       - name: factures
+        identifier: '"factures"'
+      - name: customers
+        identifier: '"customers"'
+      - name: category
+        identifier: '"category"'
+      - name: books
+        identifier: '"books"'
       - name: ventes
+        identifier: '"ventes"'

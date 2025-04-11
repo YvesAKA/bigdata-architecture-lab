@@ -4,9 +4,8 @@
 ) }}
 
 SELECT
-  books_id,
-  date_edit,
-  SUM(qte) AS total_qte_vendue,
-  COUNT(*) AS nb_ventes
+  "books_id",
+  "date_edit",
+  SUM("qte") AS "total_qte"
 FROM {{ ref('stg_ventes') }}
-GROUP BY books_id, date_edit
+GROUP BY "books_id", "date_edit"

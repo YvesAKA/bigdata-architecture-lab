@@ -4,9 +4,10 @@
 ) }}
 
 SELECT
-  books_id,
-  TO_CHAR(date_edit, 'YYYY-MM') AS mois,
-  SUM(qte) AS total_qte_vendue,
-  COUNT(*) AS nb_ventes
+  "books_id",
+  EXTRACT(YEAR FROM "date_edit") AS "annee",
+  EXTRACT(MONTH FROM "date_edit") AS "mois",
+  SUM("qte") AS "total_qte_vendue",
+  COUNT(*) AS "nb_ventes"
 FROM {{ ref('stg_ventes') }}
-GROUP BY books_id, mois
+GROUP BY "books_id", "annee", "mois"

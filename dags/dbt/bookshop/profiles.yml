@@ -9,6 +9,6 @@ bookshop:
       role: ACCOUNTADMIN              
       database: BOOKSHOP
       warehouse: COMPUTE_WH
-      schema: PUBLIC  
+      schema: BS
       threads: 10
       client_session_keep_alive: False

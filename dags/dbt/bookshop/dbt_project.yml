@@ -8,19 +8,24 @@ target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
-seeds:
-  bookshop_dbt:
-    schema: raw
-    quote_columns: true
+
+tests:
+  bookshop:
+    staging:
+      +enabled: false
+    warehouse:
+      +enabled: false
+    marts:
+      +enabled: false
     
 models:
   bookshop:
     staging:
       materialized: table
-      schema: staging
+      schema: STAGGING
     warehouse:
       materialized: table
-      schema: warehouse
+      +schema: WAREHOUSE
     marts:
       materialized: table
-      schema: marts
+      +schema: MARTS

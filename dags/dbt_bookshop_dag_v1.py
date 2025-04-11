@@ -32,4 +32,5 @@ dbt_snowflake_dag = DbtDag(
     start_date=datetime(2025, 4, 11),  # Date de début du DAG
     catchup=False,  # Désactive le rattrapage des exécutions manquées
     dag_id="dbt_snowflake_dag",  # Identifiant unique du DAG
+    
 )
