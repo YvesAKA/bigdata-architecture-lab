@@ -43,11 +43,10 @@ pip install -r requirements.txt
 - Assurez-vous que PostgreSQL est installé et en cours d'exécution.
 - Créez une base de données et un utilisateur :
 
-```sql
-CREATE DATABASE bookshop;
-CREATE USER bookuser WITH PASSWORD 'bookpass';
-GRANT ALL PRIVILEGES ON DATABASE bookshop TO bookuser;
+```bash
+docker-compose up -d;
 ```
+- Provisionner le dataset à l'aide du script 'populate_db.sql'.
 
 - Mettez à jour les informations de connexion dans le fichier `extract_source_data.py` :
 
